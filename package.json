@@ -1,0 +1,37 @@
+{
+  "name": "appchat",
+  "version": "1.0.0",
+  "description": "appchat",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toannguyen5699/appchat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toannguyen5699/appchat/issues"
+  },
+  "homepage": "https://github.com/toannguyen5699/appchat#readme",
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-ejs-extend": "0.0.1",
+    "mongoose": "^5.6.4",
+    "mongose": "0.0.2-security",
+    "shortid": "^2.2.14"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.19.1"
+  }
+}
