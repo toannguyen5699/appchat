@@ -1,5 +1,5 @@
 /**
- * Created by https://trungquandev.com's author on 25/02/2018.
+ * Created by Toannguyen author on 1/7/2019.
  */
 function nineScrollLeft() {
   $('.left').niceScroll({

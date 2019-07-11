@@ -1,5 +1,5 @@
 /**
- * Created by https://trungquandev.com's author on 25/02/2018.
+ * Created by Toannguyen author on 1/7/2019.
  */
 function showRegisterForm() {
     $('.loginBox').fadeOut('fast', function() {
@@ -29,6 +29,7 @@ function showRegisterForm() {
     showLoginForm();
     setTimeout(function() {
       $('#loginModal').modal('show');
+      showLoginForm();
     }, 230);
   }
   
@@ -36,5 +37,6 @@ function showRegisterForm() {
     showRegisterForm();
     setTimeout(function() {
       $('#loginModal').modal('show');
+      showRegisterForm();
     }, 230);
   }
