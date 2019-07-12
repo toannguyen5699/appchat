@@ -8,5 +8,12 @@ export DB_PASSWORD=***
 
 # config database environment variable
 
-export APP_HOST=localhost
-export APP_PORT=3000
+export APP_HOST=***
+export APP_PORT=***
+
+# Config admin email account
+
+export MAIL_USER=***
+export MAIL_PASSWORD=***
+export MAIL_HOST=***
+export MAIL_PORT=***
