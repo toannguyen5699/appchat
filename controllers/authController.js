@@ -21,8 +21,8 @@ let postRegister = async (req, res) => {
 		return res.redirect("/login-register");
 	}
 	try {
-		await auth.register(req.body.email, req.body.gender, req.body.password);
-		successArr.push("success", "thanh cong");
+		let createUserSuccess = await auth.register(req.body.email, req.body.gender, req.body.password);
+		successArr.push(createUserSuccess);
 		req.flash("success", successArr);
 		return res.redirect("/login-register");
 	} catch (error) {

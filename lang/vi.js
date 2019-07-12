@@ -6,5 +6,13 @@ export const transValidation = {
 };
 
 export const transErrors = {
-    account_in_use: "Email đã tồn tại"
+    account_in_use: "Email đã tồn tại",
+    account_removed: "Tài khoản đã bị gỡ khỏi hệ thống",
+    account_not_active: "Tài khoản chưa được kích hoạt"
 };
+
+export const transSuccess = {
+    userCreated: (userEmail) => {
+        return `Tài khoản <strong>${userEmail}</strong> đã được tạo thành công`;
+    } 
+}
