@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 var userSchema = new mongoose.Schema({
 	username: String,
@@ -50,8 +51,19 @@ userSchema.statics = {
 			{"local.verifyToken": token},
 			{"local.isActive": true, "local.verifyToken": null}
 			).exec();
+	},
+	
+	findUserById(id) {
+		return this.findById(id).exec();
 	}
 };
+
+userSchema.methods = {
+	comparePassword(password) {
+		return bcrypt.compare(password, this.local.password); // return a promise has result is true or false
+
+	}
+}
 
 var User = mongoose.model('User', userSchema, 'users');
 

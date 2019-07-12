@@ -9,14 +9,19 @@ export const transErrors = {
     account_in_use: "Email đã tồn tại",
     account_removed: "Tài khoản đã bị gỡ khỏi hệ thống",
     account_not_active: "Tài khoản chưa được kích hoạt",
-    token_undefined: "Token khong ton tai!!!"
+    token_undefined: "Token khong ton tai!!!",
+    login_failed: "sai tai khoan hoac mat khau",
+    server_error: "Server Error"
 };
 
 export const transSuccess = {
     userCreated: (userEmail) => {
         return `Tài khoản <strong>${userEmail}</strong> đã được tạo thành công`;
     },
-    account_actived: "Kich hoat tai khoan thanh cong"
+    account_actived: "Kich hoat tai khoan thanh cong",
+    loginSuccess: (username) => {
+        return `xin chao ${username}, chao mung ban quy tro lai`;
+    }
 };
 
 export const transMail = {
