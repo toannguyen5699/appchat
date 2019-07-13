@@ -21,7 +21,8 @@ export const transSuccess = {
     account_actived: "Kich hoat tai khoan thanh cong",
     loginSuccess: (username) => {
         return `xin chao ${username}, chao mung ban quy tro lai`;
-    }
+    },
+    logout_success: "dang xuat tai khoan thanh cong"
 };
 
 export const transMail = {

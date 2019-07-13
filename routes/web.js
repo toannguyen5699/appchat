@@ -15,10 +15,10 @@ let router = express.Router();
  * @param app from exactly express module
  */
 let initRoutes = (app) => {
-	router.get("/", homeController.getHome);
-	router.get("/login-register", authController.getLoginRegister);
-	router.post("/register",authValid.register, authController.postRegister);
-	router.get("/verify/:token", authController.verifyAccount);
+	
+	router.get("/login-register",authController.checkLoggedOut ,authController.getLoginRegister);
+	router.post("/register",authController.checkLoggedOut ,authValid.register, authController.postRegister);
+	router.get("/verify/:token",authController.checkLoggedOut ,authController.verifyAccount);
 	router.post("/login", passport.authenticate("local", {
 		successRedirect: "/",
 		failureRedirect: "/login-register",
@@ -26,6 +26,8 @@ let initRoutes = (app) => {
 		failureFlash: true
 
 	}));
+	router.get("/",authController.checkLoggedIn  ,homeController.getHome);
+	router.get("/logout",authController.checkLoggedIn ,authController.getLogout)
 	return app.use("/", router);
 };
 
