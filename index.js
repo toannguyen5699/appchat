@@ -7,10 +7,10 @@ import connectFlash from "connect-flash";
 import configSession from "./config/session";
 import passport from "passport";
 
-import pem from "pem";
-import https from "https";
+//import pem from "pem";
+//import https from "https";
 
-pem.createCertificate({ days: 1, selfSigned: true }, function (err, keys) {
+/*pem.createCertificate({ days: 1, selfSigned: true }, function (err, keys) {
 	if (err) {
 	  throw err;
 	}
@@ -42,34 +42,34 @@ pem.createCertificate({ days: 1, selfSigned: true }, function (err, keys) {
 	https.createServer({ key: keys.serviceKey, cert: keys.certificate }, app).listen(process.env.APP_PORT, function() {
 		console.log('Server listening on port' + process.env.APP_PORT);
 	});
-});
+});*/
 
 
 // initt app
-//let app = express();
+let app = express();
 
 // Connect to mongoDB
-//connectDB();
+connectDB();
 
 // Config session
-//configSession(app);
+configSession(app);
 
 // Config view engine
-//configViewEngine(app);
+configViewEngine(app);
 
 // Enable post data for request
-//app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true}));
 
 // Enable flash messages
-//app.use(connectFlash());
+app.use(connectFlash());
 
 // Config passport js
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Init all routes
-//initRoutes(app);
+initRoutes(app);
 
-//app.listen(process.env.APP_PORT, function() {
-//	console.log('Server listening on port' + process.env.APP_PORT);
-
+app.listen(process.env.APP_PORT, function() {
+	console.log('Server listening on port' + process.env.APP_PORT);
+});
