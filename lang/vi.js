@@ -11,7 +11,9 @@ export const transErrors = {
     account_not_active: "Tài khoản chưa được kích hoạt",
     token_undefined: "Token khong ton tai!!!",
     login_failed: "sai tai khoan hoac mat khau",
-    server_error: "Server Error"
+    server_error: "Server Error",
+    avatar_type: "file type error",
+    avatar_size: "upload img max stogare is 1MB"
 };
 
 export const transSuccess = {
@@ -22,7 +24,8 @@ export const transSuccess = {
     loginSuccess: (username) => {
         return `xin chao ${username}, chao mung ban quy tro lai`;
     },
-    logout_success: "dang xuat tai khoan thanh cong"
+    logout_success: "dang xuat tai khoan thanh cong",
+    avatar_updated: "cap nhat anh dai dien thanh cong"
 };
 
 export const transMail = {

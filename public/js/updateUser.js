@@ -9,17 +9,17 @@ function updateUserInfo() {
         let math = ["image/png", "image/jpg", "image/jpeg"];
         let limit = 1048576; // byte = 1mb
 
-        if($.inArray(fileData.type, math) === -1 ) {
-            alertify.notify("Type File Error (Only accept png,jpg,jpeg)", "error", 7);
-            $(this).val(null);
-            return false;
-        }
+        // if($.inArray(fileData.type, math) === -1 ) {
+        //     alertify.notify("Type File Error (Only accept png,jpg,jpeg)", "error", 7);
+        //     $(this).val(null);
+        //     return false;
+        // }
 
-        if(fileData.size > limit ) {
-            alertify.notify("upload img max stogare is 1MB ", "error", 7);
-            $(this).val(null);
-            return false;
-        }
+        // if(fileData.size > limit ) {
+        //     alertify.notify("upload img max stogare is 1MB ", "error", 7);
+        //     $(this).val(null);
+        //     return false;
+        // }
 
         if(typeof (FileReader) != "undefined") {
             let imagePreview = $("#image-edit-profile");
@@ -72,8 +72,40 @@ $(document).ready(function() {
             alertify.notify("You must update profile before submit", "error", 7);
             return false;
         }
-        console.log(userAvatar);
-        console.log(userInfo);
+        $.ajax({
+            url: "/user/update-avatar",
+            type: "put",
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: userAvatar,
+            success: function(result) {
+                console.log(result);
+                // display succes
+                $(".user-modal-alert-success").find("span").text(result.message);
+                $(".user-modal-alert-success").css("display","block");
+
+                // Update avatar at navbar
+                $("#navbar-avatar").attr("src", result.imageSrc);
+
+                // update origin avatar src
+                originAvatarSrc = result.imageSrc;
+
+
+                // reset all
+                $("#input-btn-cancel-update-user").click();
+            },
+            error: function(error) {
+                $(".user-modal-alert-error").find("span").text(error.responseText);
+                $(".user-modal-alert-error").css("display","block");
+
+                // reset all
+                $("#input-btn-cancel-update-user").click();
+            },
+            
+        });
+        //console.log(userAvatar);
+        //console.log(userInfo);
     });
 
     $("#input-btn-cancel-update-user").bind("click", function() {
