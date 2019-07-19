@@ -2,7 +2,11 @@ export const transValidation = {
     email_incorrect: "Email phải có dạng example@gmail.com",
     gender_incorrect: "Sai giới tính ",
     password_incorrect: "Mật khẩu phải có ít nhất 8 kí tự, ba gồm chữ hoa chữ thường",
-    password_confirmation_incorrect: "Nhập lại mật khẩu chưa đúng"
+    password_confirmation_incorrect: "Nhập lại mật khẩu chưa đúng", 
+    update_username: "User name gioi han 3-17 ki tu, khong chua ki tu dac biet.",
+    update_gender: "Sai gioi tinh",
+    update_address: "Dia chi gioi han trong khonag 2-30 ki tu",
+    update_phone: "so dien  thoai viet nam bat dau tu so 0 gioi han trong khoang 10-11 ki tu",
 };
 
 export const transErrors = {
@@ -24,8 +28,8 @@ export const transSuccess = {
     loginSuccess: (username) => {
         return `xin chao ${username}, chao mung ban quy tro lai`;
     },
-    logout_success: "dang xuat tai khoan thanh cong",
-    avatar_updated: "cap nhat anh dai dien thanh cong"
+    logout_success: "dang xuat tai khoan thanh cong.",
+    user_info_updated: "cap nhat thong tin nguoi dung thanh cong."
 };
 
 export const transMail = {
