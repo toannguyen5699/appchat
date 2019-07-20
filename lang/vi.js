@@ -13,11 +13,13 @@ export const transErrors = {
     account_in_use: "Email đã tồn tại",
     account_removed: "Tài khoản đã bị gỡ khỏi hệ thống",
     account_not_active: "Tài khoản chưa được kích hoạt",
+    account_undefined: "Tai khoan khong ton tai",
     token_undefined: "Token khong ton tai!!!",
     login_failed: "sai tai khoan hoac mat khau",
     server_error: "Server Error",
     avatar_type: "file type error",
-    avatar_size: "upload img max stogare is 1MB"
+    avatar_size: "upload img max stogare is 1MB",
+    user_current_password_failed: "Mat khau hien tai khong chinh xac"
 };
 
 export const transSuccess = {
@@ -29,7 +31,8 @@ export const transSuccess = {
         return `xin chao ${username}, chao mung ban quy tro lai`;
     },
     logout_success: "dang xuat tai khoan thanh cong.",
-    user_info_updated: "cap nhat thong tin nguoi dung thanh cong."
+    user_info_updated: "cap nhat thong tin nguoi dung thanh cong.",
+    user_password_updated: " Cap nhat mat khau thanh cong"
 };
 
 export const transMail = {
