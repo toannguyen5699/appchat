@@ -7,6 +7,7 @@ export const transValidation = {
     update_gender: "Sai gioi tinh",
     update_address: "Dia chi gioi han trong khonag 2-30 ki tu",
     update_phone: "so dien  thoai viet nam bat dau tu so 0 gioi han trong khoang 10-11 ki tu",
+    keyword_find_user: "Lỗi kí tự tìm kiếm chỉ cho phép ký tự chữ cái, số và khoảng trống."
 };
 
 export const transErrors = {
