@@ -84,10 +84,10 @@ userSchema.statics = {
 				{"_id": {$nin: deprecatedUserIds}}, // tim nhung id khong thuoc mang deprecatedUserIds
 				{"local.isActive": true}, // tim nhuwng tai khoan da kich hoat bang gmail
 				{$or: [
-					{"username": {"$regex": keyword}}, // timf phan tu gan giong nhat voi keyword minh nhap
-					{"local.email": {"$regex": keyword}},
-					{"facebook.email": {"$regex": keyword}},
-					{"google.email": {"$regex": keyword}}
+					{"username": {"$regex": new RegExp(keyword, "i") }}, // timf phan tu gan giong nhat voi keyword minh nhap (ko phan biet chu hoa chu thuong bang RegExp)
+					{"local.email": {"$regex": new RegExp(keyword, "i")  }},
+					{"facebook.email": {"$regex": new RegExp(keyword, "i")  }},
+					{"google.email": {"$regex": new RegExp(keyword, "i")  }}
 				]}
 			]
 		}, {_id: 1, username: 1, address: 1, avatar: 1}).exec();

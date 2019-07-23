@@ -16,26 +16,19 @@ import passport from "passport";
 	}
 	// initt app
 	let app = express();
-
 	// Connect to mongoDB
 	connectDB();
-
 	// Config session
 	configSession(app);
-
 	// Config view engine
 	configViewEngine(app);
-
 	// Enable post data for request
 	app.use(bodyParser.urlencoded({ extended: true}));
-
 	// Enable flash messages
 	app.use(connectFlash());
-
 	// Config passport js
 	app.use(passport.initialize());
 	app.use(passport.session());
-
 	// Init all routes
 	initRoutes(app);
   
