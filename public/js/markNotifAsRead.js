@@ -9,7 +9,7 @@ function markNotificationsAsRead(targetUsers) {
 					$(".noti_content").find(`div[data-uid = ${uid}]`).removeClass("notif-readed-false");
 					$("ul.list-notifications").find(`li>div[data-uid = ${uid}]`).removeClass("notif-readed-false");
 				});
-				decreaseNumberNotification("noti-counter", targetUsers.length);
+				decreaseNumberNotification("noti_counter", targetUsers.length);
 			}
 		}
 	});
