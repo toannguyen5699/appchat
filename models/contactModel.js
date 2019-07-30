@@ -56,7 +56,8 @@ contactSchema.statics = {
 		return this.deleteOne({
 			$and: [
 				{"userId": userId},
-				{"contactId": contactId}
+				{"contactId": contactId},
+				{"status": false}
 			]
 		}).exec();
 	},
@@ -70,9 +71,25 @@ contactSchema.statics = {
 		return this.deleteOne({
 			$and: [
 				{"contactId": userId},
-				{"userId": contactId}
+				{"userId": contactId},
+				{"status": false}
 			]
 		}).exec();
+	},
+
+	/**
+	* chap nhan loi moi ket ban
+	* @param {string} userId 
+	* @param {string} contactId 
+	*/
+	approveRequestContactReceived(userId, contactId) {
+		return this.updateOne({
+			$and: [
+				{"contactId": userId},
+				{"userId": contactId},
+				{"status": false}
+			]
+		}, {"status": true}).exec();
 	},
 
 	/**
