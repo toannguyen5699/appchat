@@ -1,9 +1,11 @@
 import contactModel from "./../models/contactModel";
 import userModel from "./../models/userModel";
 import chatGroupModel from "./../models/chatGroupModel";
+import messageModel from "./../models/messageModel";
 import _ from "lodash"; // lib sap xep
 
 const LIMIT_CONVERSATIONS_TAKEN = 15;
+const LIMIT_MESSAGES_TAKEN = 30;
 
 /**
  * get all conversations
@@ -33,12 +35,26 @@ let getAllConversationItems  = (currentUserId) => {
 				allConversations = _.sortBy(allConversations, (item) => {
 					return -item.updatedAt;
 				});
+
+				// get messages to aplly in screen chat
+				let allConversationWithMessagesPromise = allConversations.map( async (conversation) => {
+					let getMessages = await messageModel.model.getMessages(currentUserId, conversation._id, LIMIT_MESSAGES_TAKEN);
+					conversation = conversation.toObject();
+					conversation.messages = getMessages;
+					return conversation;
+				});
 				
+				let allConversationWithMessages = await Promise.all(allConversationWithMessagesPromise);
+				// sort by updateAt 
+				allConversationWithMessages = _.sortBy(allConversationWithMessages, (item) => {
+					return -item.updatedAt;
+				});
 
 				resolve({
 					userConversations: userConversations,
 					groupConversations: groupConversations,
-					allConversations: allConversations
+					allConversations: allConversations,
+					allConversationWithMessages: allConversationWithMessages
 				});
 
 			} catch (error) {
