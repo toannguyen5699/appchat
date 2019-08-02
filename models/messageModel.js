@@ -7,12 +7,12 @@ var messageSchema = new mongoose.Schema({
 	messageType: String,
 	sender: {
 		id: String,
-		username: String,
+		name: String,
 		avatar: String
 	},
 	receiver: {
 		id: String,
-		username: String,
+		name: String,
 		avatar: String	
 	},
 	text: String, 
@@ -24,12 +24,12 @@ var messageSchema = new mongoose.Schema({
 
 messageSchema.statics = {
 	/**
-	 * get limited item one time
+	 * get message in personal
 	 * @param {string} senderId currentUserId
-	 * @param {string} receiverId 
+	 * @param {string} receiverId id of contact
 	 * @param {number} limit 
 	 */
-	getMessages(senderId, receiverId, limit) {
+	getMessagesInPersonal(senderId, receiverId, limit) {
 		return this.find({
 			$or: [
 				{$and:[
@@ -42,6 +42,15 @@ messageSchema.statics = {
 				]}
 			]
 		}).sort({"createdAt": 1}).limit(limit).exec();
+	},
+	
+	/**
+	 * get message in group
+	 * @param {string} receiverId if of group chat
+	 * @param {number} limit 
+	 */
+	getMessagesInGroup(receiverId, limit) {
+		return this.find({"receiverId": receiverId}).sort({"createdAt": 1}).limit(limit).exec();
 	}
 };
 
