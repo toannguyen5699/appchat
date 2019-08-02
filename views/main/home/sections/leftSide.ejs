@@ -12,7 +12,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="all-chat">
                             <ul class="people no-padding-start">
-                                <% allConversations.forEach(function(conversation) { %>
+                                <% allConversationWithMessages.forEach(function(conversation) { %>
                                     <% if(conversation.members) { %>
                                         <a href="#uid_<%= conversation._id %>" class="room-chat" data-target="#to_<%= conversation._id %>">
                                             <li class="person group-chat" data-chat="<%= conversation._id %>">
@@ -29,8 +29,20 @@
                                                         <% } %>
                                                     </span>
                                                 </span>
-                                                <span class="time">fake</span>
-                                                <span class="preview">fake</span>
+                                                <span class="time">
+                                                    <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
+                                                </span>
+                                                <span class="preview">
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
+                                                        <%= lastItemOfArray(conversation.messages).text %>
+                                                    <% } %>
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "image") { %>
+                                                        Hinh Anh...
+                                                    <% } %>
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "file") { %>
+                                                        Tep dinh kem...
+                                                    <% } %>
+                                                </span>
                                             </li>
                                         </a>
                                     <% } else { %>
@@ -47,8 +59,20 @@
                                                         <%= conversation.username %>
                                                     <% } %>
                                                 </span>
-                                                <span class="time">fake</span>
-                                                <span class="preview">fake</span>
+                                                <span class="time">
+                                                    <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
+                                                </span>
+                                                <span class="preview">
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
+                                                        <%= lastItemOfArray(conversation.messages).text %>
+                                                    <% } %>
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "image") { %>
+                                                        Hinh Anh...
+                                                    <% } %>
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "file") { %>
+                                                        Tep dinh kem...
+                                                    <% } %>
+                                                </span>
                                             </li>
                                         </a>
                                     <% } %>
@@ -65,7 +89,8 @@
                         </div>
                         <div class="tab-pane " id="user-chat">
                             <ul class="people no-padding-start">
-                                    <% userConversations.forEach(function(conversation) { %>
+                                    <% allConversationWithMessages.forEach(function(conversation) { %>
+                                        <% if(!conversation.members) { %>
                                         <a href="#uid_<%= conversation._id %>" class="room-chat" data-target="#to_<%= conversation._id %>">
                                             <li class="person" data-chat="<%= conversation._id %>">
                                                 <div class="left-avatar">
@@ -79,10 +104,23 @@
                                                             <%= conversation.username %>
                                                         <% } %>
                                                     </span>
-                                                <span class="time">fake</span>
-                                                <span class="preview">fake</span>
+                                                <span class="time">
+                                                    <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
+                                                </span>
+                                                <span class="preview">
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
+                                                        <%= lastItemOfArray(conversation.messages).text %>
+                                                    <% } %>
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "image") { %>
+                                                        Hinh Anh...
+                                                    <% } %>
+                                                    <% if (lastItemOfArray(conversation.messages).messageType === "file") { %>
+                                                        Tep dinh kem...
+                                                    <% } %>
+                                                </span>
                                             </li>
                                         </a>
+                                        <% } %>
                                     <% }); %>
                             </ul>
                             <hr>
@@ -96,7 +134,8 @@
                         </div>
                         <div class="tab-pane " id="group-chat">
                             <ul class="people no-padding-start">
-                                    <% groupConversations.forEach(function(conversation) { %>
+                                    <% allConversationWithMessages.forEach(function(conversation) { %>
+                                        <% if(conversation.members) { %>
                                         <a href="#uid_<%= conversation._id %>" class="room-chat" data-target="#to_<%= conversation._id %>">
                                             <li class="person group-chat" data-chat="<%= conversation._id %>">
                                                 <div class="left-avatar">
@@ -111,11 +150,23 @@
                                                             <%= conversation.name %>
                                                         <% } %>
                                                     </span>
-                                                </span>
-                                                <span class="time">fake</span>
-                                                <span class="preview">fake</span>
+                                                    <span class="time">
+                                                        <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
+                                                    </span>
+                                                    <span class="preview">
+                                                        <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
+                                                            <%= lastItemOfArray(conversation.messages).text %>
+                                                        <% } %>
+                                                        <% if (lastItemOfArray(conversation.messages).messageType === "image") { %>
+                                                            Hinh Anh...
+                                                        <% } %>
+                                                        <% if (lastItemOfArray(conversation.messages).messageType === "file") { %>
+                                                            Tep dinh kem...
+                                                        <% } %>
+                                                    </span>
                                             </li>
                                         </a>
+                                        <% } %>
                                     <% }); %>
                             </ul>
                             <hr>
