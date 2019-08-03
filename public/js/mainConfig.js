@@ -38,9 +38,11 @@ function enableEmojioneArea(divId) {
     shortnames: false,
     events: {
       keyup: function(editor, event) {
+        // Gan gia tri thay doi vao the input da bi an
         $(`#write-chat-${divId}`).val(this.getText());
       },
       click: function() {
+        // Bat lang nghe DOM cho viec chat tin nhan van ban emoji
         textAndEmojiChat(divId);
       }
     },
@@ -211,5 +213,5 @@ $(document).ready(function() {
   changeScreenChat();
 
   // click vao phan tu dau tien cua cuoc tro chuyen khi load trang web
-  $("ul.people").find("li")[0].click();
+  $("ul.people").find("a")[0].click();
 });

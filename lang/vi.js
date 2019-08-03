@@ -7,7 +7,8 @@ export const transValidation = {
     update_gender: "Sai gioi tinh",
     update_address: "Dia chi gioi han trong khonag 2-30 ki tu",
     update_phone: "so dien  thoai viet nam bat dau tu so 0 gioi han trong khoang 10-11 ki tu",
-    keyword_find_user: "Lỗi kí tự tìm kiếm chỉ cho phép ký tự chữ cái, số và khoảng trống."
+    keyword_find_user: "Lỗi kí tự tìm kiếm chỉ cho phép ký tự chữ cái, số và khoảng trống.",
+    message_text_emoji_incorrect: "Tin nhan khong hop le. Dam bao toi thieu 1 ki tu, toi da 500 ki tu."
 };
 
 export const transErrors = {
@@ -20,7 +21,8 @@ export const transErrors = {
     server_error: "Server Error",
     avatar_type: "file type error",
     avatar_size: "upload img max stogare is 1MB",
-    user_current_password_failed: "Mat khau hien tai khong chinh xac"
+    user_current_password_failed: "Mat khau hien tai khong chinh xac",
+    conversation_no_found: "Cuoc tro chuyen khong ton tai"
 };
 
 export const transSuccess = {
