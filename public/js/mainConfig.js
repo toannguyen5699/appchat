@@ -44,6 +44,13 @@ function enableEmojioneArea(divId) {
       click: function() {
         // Bat lang nghe DOM cho viec chat tin nhan van ban emoji
         textAndEmojiChat(divId);
+        // Bat chuc nang typing on
+        typingOn(divId);
+      },
+      
+      blur: function() {
+        // Tat chuc nang nguoi dung dang go
+        typingOff(divId);
       }
     },
   });
