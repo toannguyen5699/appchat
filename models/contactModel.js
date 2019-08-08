@@ -240,7 +240,7 @@ contactSchema.statics = {
 	 * @param {string} contactId contact id
 	 */
 	updateWhenHasNewMessage(userId, contactId) {
-		return this.update({
+		return this.updateOne({
 			$or: [
 				{$and: [
 					{"userId": userId},

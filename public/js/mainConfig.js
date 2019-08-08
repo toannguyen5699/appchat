@@ -15,14 +15,14 @@ function nineScrollLeft() {
 }
 
 function nineScrollRight(divId) {
-  $(`.right .chat[data-chat = ${divId}]`).niceScroll({
+  $(`.right .content-chat .chat[data-chat=${divId}]`).niceScroll({
     smoothscroll: true,
     horizrailenabled: false,
     cursorcolor: '#ECECEC',
     cursorwidth: '7px',
     scrollspeed: 50
   });
-  $(`.right .chat[data-chat = ${divId}]`).scrollTop($(`.right .chat[data-chat = ${divId}]`)[0].scrollHeight);
+  $(`.right .content-chat .chat[data-chat=${divId}]`).scrollTop($(`.right .content-chat .chat[data-chat=${divId}]`)[0].scrollHeight);
 }
 
 function enableEmojioneArea(divId) {
@@ -174,7 +174,6 @@ function changeScreenChat() {
     $(this).tab("show");
 
     // Cau hinh thanh cuon ben box chat rightSide.ejs moi khi minh click chuot vao mot cuoc tro chuyen cu the
-    
     nineScrollRight(divId);
 
     // Bật emoji, tham số truyền vào là id của box nhập nội dung tin nhắn

@@ -1,6 +1,7 @@
 import passport from "passport";
 import passportLocal from "passport-local";
 import userModel from "./../../models/userModel";
+import chatGroupModel from "./../../models/chatGroupModel";
 import {transErrors, transSuccess} from "./../../lang/vi";
 
 let localStrategy = passportLocal.Strategy;
@@ -42,15 +43,21 @@ let initPassportLocal = () => {
         done(null, user._id);
     });
 
-    passport.deserializeUser((id, done) => {
-        userModel.findUserByIdForSessionToUse(id)
-            .then(user => {
-                return done(null, user);
-            })
-            .catch(error => {
-                return done(error, null);
-            });
-    })
+    // this is called by passport.session()
+    // return userInfo to req user
+    passport.deserializeUser( async (id, done) => {
+        try {
+            let user = await userModel.findUserByIdForSessionToUse(id);
+            let getChatGroupIds = await chatGroupModel.getChatGroupIdsByUser(user._id);
+
+            user = user.toObject();
+            user.chatGroupIds = getChatGroupIds;
+            return done(null, user);
+
+        } catch (error) {
+            return done(error, null);
+        }
+    });
 };
 
 module.exports = initPassportLocal;

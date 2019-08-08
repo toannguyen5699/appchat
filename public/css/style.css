@@ -1724,3 +1724,7 @@ label:focus,
   color: #2c3e50 !important;
 }
 
+.message-time-realtime {
+  color: #485460 !important; 
+  font-weight: bold;
+}
