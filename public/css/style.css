@@ -1719,3 +1719,8 @@ label:focus,
   height: 100%;
 }
 
+.show-number-members,
+.show-number-messages {
+  color: #2c3e50 !important;
+}
+
