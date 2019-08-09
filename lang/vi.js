@@ -22,7 +22,9 @@ export const transErrors = {
     avatar_type: "file type error",
     avatar_size: "upload img max stogare is 1MB",
     user_current_password_failed: "Mat khau hien tai khong chinh xac",
-    conversation_no_found: "Cuoc tro chuyen khong ton tai"
+    conversation_no_found: "Cuoc tro chuyen khong ton tai",
+    image_message_type: "file type error",
+    image_message_size: "upload img max stogare is 1MB",
 };
 
 export const transSuccess = {

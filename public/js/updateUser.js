@@ -68,6 +68,7 @@ function updateUserInfo() {
 
             let formData = new FormData();
             formData.append("avatar", fileData);
+            
             userAvatar = formData;
         } else {
             alertify.notify("Error FileReader ", "error", 7);
