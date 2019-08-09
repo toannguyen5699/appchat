@@ -24,8 +24,9 @@ function textAndEmojiChat(divId) {
 				let dataToEmit = {
 					message: data.message
 				};
+
 				// step 01: handle message data to before show
-				let messageOfMe = $(`<div class="bubble me data-mess-id="${data.message._id}"></div>`);
+				let messageOfMe = $(`<div class="bubble me" data-mess-id="${data.message._id}"></div>`);
 				messageOfMe.text(data.message.text);
 				let convertEmojiMessage = emojione.toImage(messageOfMe.html());
 
@@ -82,10 +83,9 @@ function textAndEmojiChat(divId) {
 
 $(document).ready(function () {
 	socket.on("response-chat-text-emoji", function(response) {
-		console.log(response);
 		let divId = "";
 		// step 01: handle message data to before show
-		let messageOfYou = $(`<div class="bubble you data-mess-id="${response.message._id}"></div>`);
+		let messageOfYou = $(`<div class="bubble you" data-mess-id="${response.message._id}"></div>`);
 		messageOfYou.text(response.message.text);
 		let convertEmojiMessage = emojione.toImage(messageOfYou.html());
 
@@ -104,8 +104,6 @@ $(document).ready(function () {
 			divId = response.currentUserId;
 		}
 
-		console.log(response.currentUserId);
-		console.log($("#dropdown-navbar-user").data("uid"));
 		// step 02: append message data to screen
 		if (response.currentUserId !== $("#dropdown-navbar-user").data("uid")) {
 			$(`.right .chat[data-chat=${divId}]`).append(messageOfYou);
