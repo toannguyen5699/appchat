@@ -25,6 +25,7 @@ export const transErrors = {
     conversation_no_found: "Cuoc tro chuyen khong ton tai",
     image_message_type: "file type error",
     image_message_size: "upload img max stogare is 1MB",
+    attachment_message_size : "upload file max stogare is 1MB",
 };
 
 export const transSuccess = {

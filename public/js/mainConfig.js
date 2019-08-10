@@ -195,6 +195,9 @@ function changeScreenChat() {
 
     // Bat lang nghe DOM cho viec chat tin nhan hinh anh
     imageChat(divId);
+
+    // Bat lang nghe DOM cho viec chat tin nhan tep tin
+    attachmentChat(divId);
   });
 }
 
@@ -204,6 +207,11 @@ function convertEmoji() {
       var converted = joypixels.toImage(original);
       $(this).html(converted);
   });
+}
+
+function bufferToBase64(buffer) {
+	return btoa(
+		new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
 }
 
 $(document).ready(function() {
