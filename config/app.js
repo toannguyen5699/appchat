@@ -1,4 +1,5 @@
 export const app = {
+    max_event_listener: 30,
     avatar_directory: "public/images/users",
     avatar_type: ["image/png", "image/jpg", "image/jpeg"],
     avatar_limit_size: 1048576, // 1MB
@@ -7,5 +8,5 @@ export const app = {
     image_message_type: ["image/png", "image/jpg", "image/jpeg"],
     image_message_limit_size: 1048576, // 1MB
     attachment_message_directory: "public/images/chat/message",
-    attachment_message_limit_size: 1048576 // 1MB
+    attachment_message_limit_size: 1048576, // 1MB
 };

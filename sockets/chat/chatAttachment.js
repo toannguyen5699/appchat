@@ -15,28 +15,28 @@ let chatAttachment= (io) => {
 
     socket.on("chat-attachment", (data) => {
       if (data.groupId) {
-				let response = {
-					currentGroupId: data.groupId,
-					currentUserId: socket.request.user._id,
-					message: data.message
-				};
-				// emit notification (chi gui thong bao ve user nhan duoc loi moi ket ban)
-				if (clients[data.groupId]) {
-					// Khi mo 2 tab trinh duyet socketio se gui thong bao ve ca 2
-				emitNotifyToArray(clients, data.groupId, io, "response-chat-attachment", response);
-				}
-			}
-			if (data.contactId) {
-				let response = {
-					currentUserId: socket.request.user._id,
-					message: data.message
-				};
-				// emit notification (chi gui thong bao ve user nhan duoc loi moi ket ban)
-				if (clients[data.contactId]) {
-					// Khi mo 2 tab trinh duyet socketio se gui thong bao ve ca 2
-				emitNotifyToArray(clients, data.contactId, io, "response-chat-attachment", response);
-				}
-			}
+		let response = {
+			currentGroupId: data.groupId,
+			currentUserId: socket.request.user._id,
+			message: data.message
+		};
+		// emit notification (chi gui thong bao ve user nhan duoc loi moi ket ban)
+		if (clients[data.groupId]) {
+			// Khi mo 2 tab trinh duyet socketio se gui thong bao ve ca 2
+		emitNotifyToArray(clients, data.groupId, io, "response-chat-attachment", response);
+		}
+	}
+	if (data.contactId) {
+		let response = {
+			currentUserId: socket.request.user._id,
+			message: data.message
+		};
+		// emit notification (chi gui thong bao ve user nhan duoc loi moi ket ban)
+		if (clients[data.contactId]) {
+			// Khi mo 2 tab trinh duyet socketio se gui thong bao ve ca 2
+		emitNotifyToArray(clients, data.contactId, io, "response-chat-attachment", response);
+		}
+	}
     });
 
     socket.on("disconnect", () => {
