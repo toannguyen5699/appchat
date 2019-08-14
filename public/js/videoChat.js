@@ -32,13 +32,18 @@ $(document).ready(function() {
 		alertify.notify("Nguoi dung dang vang mat vui long lien he lai sau", "error", 7);
 	});
 
+	let iceServerList = $("#ice-server-list").val();
+	console.log(iceServerList);
+	console.log(typeof iceServerList);
+
 	let getPeerId = "";
 	const peer = new Peer({
 		key: "peerjs",
 		host: "peerjs-server-trungquandev.herokuapp.com",
 		secure: true,
 		port: 443,
-		debug: 3
+		config: {"iceServers": JSON.parse(iceServerList)}
+		//debug: 3
 	});
 	console.log(peer);
 	peer.on("open", function(peerId) {
