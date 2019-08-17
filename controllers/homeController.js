@@ -4,7 +4,7 @@ import request from "request";
 
 let getICETurnServer = () => {
 	return new Promise(async (resolve, reject) => {
-		// Node Get ICE STUN and TURN list
+		/* // Node Get ICE STUN and TURN list
 		let o = {
 			format: "urls"
 		};
@@ -31,7 +31,8 @@ let getICETurnServer = () => {
 			}
 			let bodyJson = JSON.parse(body);
 			resolve(bodyJson.v.iceServers);		
-		});	
+		});	*/
+		resolve([]);
 	});
 }
 
