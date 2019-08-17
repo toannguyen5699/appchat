@@ -14,6 +14,10 @@ var chatGroupSchema = new mongoose.Schema({
 });
 
 chatGroupSchema.statics = {
+	createNew(item) {
+		return this.create(item);
+	},
+
 	/**
 	 * get chat group items by userId and limit
 	 * @param {string} userId current userId

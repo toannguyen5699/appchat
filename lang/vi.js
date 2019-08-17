@@ -8,7 +8,9 @@ export const transValidation = {
     update_address: "Dia chi gioi han trong khonag 2-30 ki tu",
     update_phone: "so dien  thoai viet nam bat dau tu so 0 gioi han trong khoang 10-11 ki tu",
     keyword_find_user: "Lỗi kí tự tìm kiếm chỉ cho phép ký tự chữ cái, số và khoảng trống.",
-    message_text_emoji_incorrect: "Tin nhan khong hop le. Dam bao toi thieu 1 ki tu, toi da 500 ki tu."
+    message_text_emoji_incorrect: "Tin nhan khong hop le. Dam bao toi thieu 1 ki tu, toi da 500 ki tu.",
+    add_new_group_users_incorrect: "Vui long chon them ban be de them vao nhom",
+    add_new_group_name_incorrect: "Vui long nhap ten cuoc tro chuyen ( tu 5 den 30 ki tu), va khong chua ki tu dac biet"
 };
 
 export const transErrors = {
