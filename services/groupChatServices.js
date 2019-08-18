@@ -10,7 +10,7 @@ let addNewGroup = (currentUserId, arrayMemberIds, groupChatName) => {
 			arrayMemberIds = _.uniqBy(arrayMemberIds, "userId");
 
 			let newGroupItem = {
-				groupChatName: String,
+				name: groupChatName,
 				userAmount: arrayMemberIds.length,
 				userId: `${currentUserId}`,
 				members: arrayMemberIds
