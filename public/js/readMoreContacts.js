@@ -10,6 +10,7 @@ $(document).ready(function() {
                   alertify.notify("Ban khong con ban be moi ", "error", 7);
                   $("#link-read-more-contacts").css("display", "inline-block");
                   $(".read-more-contacts-loader").css("display", "none");
+                  
                   return false;
               }
               newContactUsers.forEach(function(user) {

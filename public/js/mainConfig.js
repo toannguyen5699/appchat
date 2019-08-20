@@ -14,6 +14,10 @@ function nineScrollLeft() {
   });
 }
 
+function resizeNineScrollLeft() {
+  $(".left").getNiceScroll().resize();
+}
+
 function nineScrollRight(divId) {
   $(`.right .content-chat .chat[data-chat=${divId}]`).niceScroll({
     smoothscroll: true,
@@ -179,7 +183,7 @@ function changeScreenChat() {
 function convertEmoji() {
   $(".convert-emoji").each(function() {
       var original = $(this).html();
-      var converted = joypixels.toImage(original);
+      var converted = emojione.toImage(original);
       $(this).html(converted);
   });
 }
@@ -196,7 +200,7 @@ $(document).ready(function() {
   // Bật tắt popup notification
   configNotification();
 
-  // Cấu hình thanh cuộn
+  // Cấu hình thanh cuộn ben trai
   nineScrollLeft();
 
   // Icon loading khi chạy ajax
