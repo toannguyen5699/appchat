@@ -1887,3 +1887,9 @@ label:focus,
   }
 }
 
+.message-loading {
+  display: block;
+  margin: 0 auto;
+
+}
+
