@@ -223,7 +223,9 @@ $(document).ready(function() {
   convertEmoji
 
   // click vao phan tu dau tien cua cuoc tro chuyen khi load trang web
-  $("ul.people").find("a")[0].click();
+  if ($("ul.people").find("a").length) {
+    $("ul.people").find("a")[0].click();
+  }
 
   $("#video-chat-group").bind("click", function() {
     alertify.notify("Đang nghiên cứu với nhóm trò chuyện...", "error", 7)
