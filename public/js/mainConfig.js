@@ -129,7 +129,7 @@ function gridPhotos(layoutNumber) {
     });
 
     // Bat su kien dong modal
-    $('#${modalImagesId').on('hidden.bs.modal', function () {
+    $(`#${modalImagesId}`).on('hidden.bs.modal', function () {
       $(this).find("div.modal-body").html(originDataImage);
     });
   });
@@ -193,6 +193,44 @@ function bufferToBase64(buffer) {
 		new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
 }
 
+function zoomImageChat() {
+  $(".show-image-chat").unbind("click").on("click", function() {
+    $("#img-chat-modal").css("display", "block");
+    $("#img-chat-modal-content").attr("src", $(this)[0].src);
+
+    $("#img-chat-modal").on("click", function() {
+      $(this).css("display","none");
+    });
+  });
+}
+
+function userTalk() {
+  $(".user-talk").unbind("click").on("click", function() {
+    let dataChat = $(this).data("uid");
+    $("ul.people").find(`a[href="#uid_${dataChat}"]`).click();
+    $(this).closest("div.modal").modal("hide");
+  });
+}
+
+function notYetConversations() {
+  if(!$("ul.people").find("a").length) {
+    Swal.fire({
+      title: `Bạn có chắc chắn muốn tạo nhóm trò chuyện &nbsp; ${groupChatName} ?`,
+      type: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#4267b2",
+      cancelButtonColor: "#ff7675",
+      confirmButtonText: "Xác nhận",
+      cancelButtonText: "Hủy"
+    }).then((result) => {
+      $("#contactsModal").modal("show");
+      if (!result.value) {
+          return false;
+      }
+    })
+  }
+}
+
 $(document).ready(function() {
   // Hide số thông báo trên đầu icon mở modal contact
   showModalContacts();
@@ -220,7 +258,7 @@ $(document).ready(function() {
   changeScreenChat();
 
   // Dang sua loi chuyen ki tu thanhf emoji(chua fix duowc)
-  convertEmoji
+  convertEmoji();
 
   // click vao phan tu dau tien cua cuoc tro chuyen khi load trang web
   if ($("ul.people").find("a").length) {
@@ -229,5 +267,8 @@ $(document).ready(function() {
 
   $("#video-chat-group").bind("click", function() {
     alertify.notify("Đang nghiên cứu với nhóm trò chuyện...", "error", 7)
-  }); 
+  });
+
+  notYetConversations();
+  userTalk();
 });

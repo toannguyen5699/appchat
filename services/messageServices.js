@@ -46,6 +46,13 @@ let getAllConversationItems  = (currentUserId) => {
 					if (conversation.members) {
 						let getMessages = await messageModel.model.getMessagesInGroup(conversation._id, LIMIT_MESSAGES_TAKEN);
 						conversation.messages = _.reverse(getMessages);
+
+						//conversation.membersInfo = []
+						//for (let member of conversation.members) {
+						//	let userInfo = await userModel.getNormalUserDataById(member.userId);
+						//	conversation.membersInfo.oush(userInfo);
+						//}
+						
 					} else {
 						let getMessages = await messageModel.model.getMessagesInPersonal(currentUserId, conversation._id, LIMIT_MESSAGES_TAKEN);
 						conversation.messages = _.reverse(getMessages);

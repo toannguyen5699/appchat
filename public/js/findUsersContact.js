@@ -5,12 +5,12 @@ function callFindUsers(element) {
 
 
         if (!keyword.length) {
-            alertify.notify("Chua nhap noi dung tim kiem", "error", 7);
+            alertify.notify("Chua nhap noi dung tim kiem", "error", 3);
             return false;
         }
 
         if (!regexKeyword.test(keyword)) {
-            alertify.notify("Loi tu khoa tim kiem khong cho phep ki tu dac biet", "error", 7);
+            alertify.notify("Loi tu khoa tim kiem khong cho phep ki tu dac biet", "error", 3);
             return false;
         }
 

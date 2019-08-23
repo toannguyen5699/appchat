@@ -40,7 +40,7 @@ function callSearchFriends(element) {
 		}
 
 		if (!regexKeyword.test(keyword)) {
-			alertify.notify("Loi tu khoa tim kiem khong cho phep ki tu dac biet", "error", 7);
+			alertify.notify("Loi tu khoa tim kiem khong cho phep ki tu dac biet", "error", 3);
 			return false;
 		}
 
@@ -59,7 +59,7 @@ function callCreateGroupChat() {
   $("#btn-create-group-chat").unbind("click").on("click", function() {
     let countUsers = $("ul#friends-added").find("li");
     if (countUsers.length < 2) {
-      alertify.notify("Vui long chon them ban be de them vao nhom", "error", 7);
+      alertify.notify("Vui long chon them ban be de them vao nhom", "error", 3);
       return false;
     }
 
